@@ -4,12 +4,14 @@ import time
 
 def handle(msg):
 	content_type, chat_type, chat_id = telepot.glance(msg)
-	print(content_type, chat_type, chat_id)
+	pprint(msg)
 
 	if content_type == 'text':
 		answer = ''
 		if 'que?' in msg['text']:
 			answer = 'DEDE BICHA'
+		elif 'maylan' in msg['text'] or 'Maylan' in msg['text']:
+			answer = 'maylan tesudo'
 		elif 'alto' in msg['text']:
 			answer = 'DEDE BICHA'
 		elif 'quanto?' in msg['text']:
