@@ -12,6 +12,8 @@ def handle(msg):
 			answer = 'DEDE BICHA'
 		elif 'maylan' in msg['text'] or 'Maylan' in msg['text']:
 			answer = 'vai se fuder'
+		elif 'bomberman' in msg['text']:
+			answer = 'eu sou o unico que nao evolui'
 		elif 'alto' in msg['text']:
 			answer = 'DEDE BICHA'
 		elif 'quanto?' in msg['text']:
