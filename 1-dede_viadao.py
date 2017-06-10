@@ -12,6 +12,10 @@ def handle(msg):
 			answer = 'DEDE BICHA'
 		elif 'maylan' in msg['text'] or 'Maylan' in msg['text']:
 			answer = 'vai se fuder'
+		elif 'max' in msg['text'] or 'Max' in msg['text']:
+			answer = 'bem-vindo mlk, eu sou viadao'
+		elif 'majeur' in msg['text']:
+			answer = 'majeur maromba PUSHUP CHALLENGE'
 		elif 'bomberman' in msg['text']:
 			answer = 'eu sou o unico que nao evolui'
 		elif 'alto' in msg['text']:
