@@ -6,10 +6,12 @@ def handle(msg):
 	content_type, chat_type, chat_id = telepot.glance(msg)
 	pprint(msg)
 
-	if content_type == 'text':
-		answer = ''
-		send_sticker = False
+	stickers = ['CAADAQAD-AIAAqzMpQiWbR28mG-ITwI', 'CAADAQAD3gIAAqzMpQj6CNyXfz9EEAI']
 
+	send_sticker = False
+	answer = ''
+
+	if content_type == 'text':
 		if 'que?' in msg['text']:
 			answer = ['DEDE BICHA']
 		elif 'maylan' in msg['text'] or 'Maylan' in msg['text']:
@@ -40,18 +42,27 @@ def handle(msg):
 			answer = ['valeu cara', 'me visitem em vitoria qndo voltarem', 'soiree chez moi', 'casa de dedé']
 		elif 'chegou o dede' in msg['text'] or 'dede chegou' in msg['text']:
 			answer = ['namoral vcs falam mt nesse grupo', 'resume ai pfvr']
+		elif 'zangief' in msg['text'] or 'street fighter' in msg['text']:
+			send_sticker = True
+			answer = stickers[1]
 		else:
 			send_sticker = True
+			answer = stickers[0]
 
-		if(send_sticker):
-			# sending sticker from existing sticker id
-			bot.sendSticker(chat_id, 'CAADAQAD-AIAAqzMpQiWbR28mG-ITwI', reply_to_message_id=msg['message_id'])
-
-			# sending sticker from file
-			# bot.sendSticker(chat_id, open("dede1.webp", 'rb'), reply_to_message_id=msg['message_id'])
-		else:
+		if not send_sticker:
 			for a in answer:
 				bot.sendMessage(chat_id, a, reply_to_message_id=msg['message_id'])
+
+	else:
+		send_sticker = True
+		answer = stickers[1]
+
+	if send_sticker:
+		# sending sticker from existing sticker id
+		bot.sendSticker(chat_id, answer, reply_to_message_id=msg['message_id'])
+
+		# sending sticker from file
+		# bot.sendSticker(chat_id, open("dede1.webp", 'rb'), reply_to_message_id=msg['message_id'])
 
 
 # instantiate bot
