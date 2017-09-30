@@ -8,6 +8,8 @@ def handle(msg):
 
 	if content_type == 'text':
 		answer = ''
+		send_sticker = False
+
 		if 'que?' in msg['text']:
 			answer = ['DEDE BICHA']
 		elif 'maylan' in msg['text'] or 'Maylan' in msg['text']:
@@ -39,12 +41,18 @@ def handle(msg):
 		elif 'chegou o dede' in msg['text'] or 'dede chegou' in msg['text']:
 			answer = ['namoral vcs falam mt nesse grupo', 'resume ai pfvr']
 		else:
-			answer = ['dede viadao']
-			
-		for a in answer:
-			bot.sendMessage(chat_id, a, reply_to_message_id=msg['message_id'])
+			send_sticker = True
 
-	#bot.sendSticker(chat_id, )
+		if(send_sticker):
+			# sending sticker from existing sticker id
+			bot.sendSticker(chat_id, 'CAADAQAD-AIAAqzMpQiWbR28mG-ITwI', reply_to_message_id=msg['message_id'])
+
+			# sending sticker from file
+			# bot.sendSticker(chat_id, open("dede1.webp", 'rb'), reply_to_message_id=msg['message_id'])
+		else:
+			for a in answer:
+				bot.sendMessage(chat_id, a, reply_to_message_id=msg['message_id'])
+
 
 # instantiate bot
 TOKEN = open('token_valentecaio1.txt', 'r').read()
